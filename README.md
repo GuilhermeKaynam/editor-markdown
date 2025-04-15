@@ -24,7 +24,7 @@ Um editor de Markdown em tempo real construído com React, TypeScript e Tailwind
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/editor-markdown.git
+git clone https://github.com/GuilhermeKaynam/editor-markdown.git
 
 # Entre no diretório
 cd editor-markdown
@@ -72,10 +72,6 @@ Contribuições são sempre bem-vindas! Sinta-se à vontade para:
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👤 Autor
 
