@@ -4,7 +4,7 @@ import EditorMarkdown from './paginas/EditorMarkdown';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <Routes>
         <Route path="/" element={<EditorMarkdown />} />
       </Routes>
