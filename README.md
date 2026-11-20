@@ -1,84 +1,62 @@
 # Editor Markdown
 
-Um editor de Markdown em tempo real construído com React, TypeScript e Tailwind CSS.
+Editor de Markdown com pré-visualização em tempo real: o texto digitado à esquerda é renderizado como HTML à direita, a cada tecla.
 
-![Editor Markdown Preview](https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1000)
+## Objetivo
 
-## 🚀 Funcionalidades
+Exercitar a comunicação entre componentes React — um estado único no componente pai, repassado para a área de edição e para a pré-visualização — usando uma biblioteca de renderização de Markdown.
 
-- ✍️ Editor de texto com suporte a Markdown
-- 👀 Pré-visualização em tempo real
-- 📱 Design responsivo
-- 🎨 Interface limpa e moderna
-- 💅 Estilização com Tailwind CSS
+## Funcionalidades
 
-## 🛠️ Tecnologias Utilizadas
+- Área de edição de texto com sintaxe Markdown.
+- Pré-visualização renderizada instantaneamente com `react-markdown`.
+- Layout responsivo: editor e pré-visualização lado a lado em telas grandes, empilhados em telas pequenas.
 
-- [React](https://react.dev/) - Biblioteca JavaScript para construção de interfaces
-- [TypeScript](https://www.typescriptlang.org/) - Superset JavaScript com tipagem estática
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitário
-- [React Router](https://reactrouter.com/) - Roteamento para React
-- [React Markdown](https://github.com/remarkjs/react-markdown) - Renderização de Markdown
+## Tecnologias
 
-## 📦 Instalação
+- React 18 + TypeScript
+- Vite
+- react-markdown
+- React Router
+- Tailwind CSS
+- Deploy na Vercel (`vercel.json` com rewrite para SPA)
+
+## Arquitetura
+
+```
+EditorMarkdown (estado: textoMarkdown)
+ ├── AreaEdicao      → recebe o texto e a função aoMudar
+ └── PreVisualizacao → recebe o texto e renderiza com react-markdown
+```
+
+O estado vive em `EditorMarkdown`; os filhos são componentes controlados e sem estado próprio.
+
+## Estrutura de diretórios
+
+```
+editor-markdown/
+└── src/
+    ├── componentes/   # AreaEdicao, PreVisualizacao
+    ├── paginas/       # EditorMarkdown
+    ├── App.tsx
+    └── main.tsx
+```
+
+## Como executar localmente
+
+Pré-requisito: Node.js 18+.
 
 ```bash
-# Clone o repositório
 git clone https://github.com/GuilhermeKaynam/editor-markdown.git
-
-# Entre no diretório
 cd editor-markdown
-
-# Instale as dependências
 npm install
-
-# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-## 🔧 Como Usar
+Acesse `http://localhost:5173`. Não há variáveis de ambiente.
 
-1. Acesse o editor através do navegador
-2. Digite seu texto usando a sintaxe Markdown no painel esquerdo
-3. Visualize o resultado em tempo real no painel direito
+## Melhorias futuras
 
-### Exemplos de Sintaxe Markdown
-
-```markdown
-# Título
-## Subtítulo
-
-- Item 1
-- Item 2
-
-**Texto em negrito**
-*Texto em itálico*
-
-[Link](https://exemplo.com)
-```
-
-## 📱 Responsividade
-
-O editor foi desenvolvido com foco em responsividade:
-- Em telas grandes: Editor e pré-visualização lado a lado
-- Em telas pequenas: Editor acima da pré-visualização
-
-## 🤝 Contribuindo
-
-Contribuições são sempre bem-vindas! Sinta-se à vontade para:
-
-1. Fazer um fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abrir um Pull Request
-
-## 👤 Autor
-
-Guilherme Kaynam  
-- GitHub: [@GuilhermeKaynam](https://github.com/GuilhermeKaynam)  
-- LinkedIn: [@guilhermekaynam](https://linkedin.com/in/guilhermekaynam)
-
----
-
-⭐️ Se este projeto te ajudou, deixe uma estrela!
+- Salvar o texto no `localStorage` para não perder o conteúdo ao recarregar.
+- Exportar o resultado como arquivo `.md` ou `.html`.
+- Barra de ferramentas para inserir formatação.
